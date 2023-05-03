@@ -69,6 +69,9 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
+- **[HTML]**
+- **[CSS]**
+- **[Javascript]**
 - **[Webpack Implementation]**
 - **[Css Loaders]**
 - **[Live server implementation]**
@@ -101,9 +104,9 @@ Clone the repository using git, and open it with visual studio code.
 Clone this repository to your desired folder:
 
   cd "your-folder"
-  git clone [https://github.com/joramot/webpack_project.git]
+  git clone [https://github.com/joramot/To_do_list_project.git]
 
-  git clone [git@github.com:https://github.com/joramot/webpack_project.git]
+  git clone [git@github.com:https://github.com/joramot/To_do_list_project.git]
 
 
 ### Usage
@@ -134,9 +137,9 @@ You can deploy this project using visual studio code and Figma.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] Organize tasks by type.
+- [ ] Repeat tasks.
+- [ ] Assign and sort tasks by color. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
