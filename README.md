@@ -67,13 +67,14 @@ After you're finished please remove all the comments and instructions!
 
 ### Tech Stack <a name="Viual Studio Code"></a>
 
-### Key Features <a name="key-features"></a>
-
 - **[HTML]**
 - **[CSS]**
 - **[Javascript]**
+
+### Key Features <a name="key-features"></a>
+
 - **[Webpack Implementation]**
-- **[Css Loaders]**
+- **[CSS Loaders]**
 - **[Live server implementation]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
