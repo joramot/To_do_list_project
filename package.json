@@ -30,6 +30,7 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
-    "babel-loader": "^9.1.2"
+    "babel-loader": "^9.1.2",
+    "lodash": "^4.17.21"
   }
 }
