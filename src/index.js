@@ -20,7 +20,7 @@ const showListTasks = () => {
       task.arrayTasks.push(taskObj);
       items.innerHTML += `<form class='item item${localtask.index}'>
       <div class='item-desc'><div class='check'><input type='checkbox' id='check${localtask.index}' class='checkbox'></div><input type='text' id='desc${localtask.index}' class='desc' value='${localtask.desc}'></div>
-      <div class='humberger'><img class='humberger-image humberger-image${localtask.index}' src='assets/images/more.png' alt='humberger'> <img class='trash-image trash-image${localtask.index}' src='assets/images/trash.png' alt='trash'></div>
+      <div class='humberger'><img class='humberger-image humberger-image${localtask.index}' src='img/more.png' alt='humberger'> <img class='trash-image trash-image${localtask.index}' src='/img/trash.png' alt='trash'></div>
       </form>`;
     });
   }
