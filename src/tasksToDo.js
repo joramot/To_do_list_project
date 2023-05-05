@@ -1,5 +1,5 @@
-export default class tasksToDo {
-  constructor() {
+export default class TasksToDo {
+  Constructor() {
     this.arrayTasks = [];
   }
 
@@ -14,9 +14,9 @@ export default class tasksToDo {
     window.location.reload();
   };
 
-  displayTasks = () => { 
-    const tasks = JSON.parse(localStorage.getItem('localTasks'));
-    inputForm.forEach((item, index) => {
+  displayTasks = () => {
+    const tasks = document.querySelectorAll('.item');
+    tasks.forEach((item, index) => {
       item.addEventListener('click', () => {
         const itemContent = document.querySelector(`.item${index}`);
         const trashImage = document.querySelector(`.trash-image${index}`);
@@ -36,38 +36,38 @@ export default class tasksToDo {
     });
   }
 
-    deleteTask = (btn) => {
-      btn.forEach((btn, index) => {
-        btn.addEventListener('click', () => {
-          this.arrayTasks = this.arrayTasks.filter((item, i) => i !== index);
-          let lenght = 0;
-          this.arrayTasks.forEach((item) => {
-            item.desc = item.desc;
-            item.index = lenght;
-            item.completed = item.completed;
-            lenght += 1;
-          });
+  deleteTask = (btn) => {
+    btn.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        this.arrayTasks = this.arrayTasks.filter((item, i) => i !== index);
+        let lenght = 0;
+        this.arrayTasks.forEach((item) => {
+          this.item.desc = item.desc;
+          this.item.index = lenght;
+          this.item.completed = item.completed;
+          lenght += 1;
+        });
+        localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
+        window.location.reload();
+      });
+    });
+  }
+
+  updateTasksList = (iDescription) => {
+    iDescription.forEach((desc, index) => {
+      desc.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+          this.arrayTasks[index].desc = desc.value;
           localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
-          window.location.reload();
-        });
+          window.location.reloadTasks();
+        }
       });
-    }
+    });
+  }
 
-    updateTasksList = (iDescription) => {
-      iDescription.forEach((desc, index) => {
-        desc.addEventListener('keypress', (event) => {
-          if (event.key === 'Enter') {
-            this.arrayTasks[index].desc = desc.value;
-            localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
-            window.location.reloadTasks();
-          }
-        });
-      });
-    }
-
-    reloadTasks = (rTBtn) => {
-      rTBtn.addEventListener('click', () => {
-        wweindow.location.reloadTasks();
-     });
-    }
+  reloadTasks = (rTBtn) => {
+    rTBtn.addEventListener('click', () => {
+      window.location.reloadTasks();
+    });
+  }
 }
