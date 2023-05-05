@@ -15,14 +15,14 @@ body {
   align-items: center;
 }
 
-.container {
+.todo {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 40%;
+  width: 60%;
   background-color: #fff;
-  box-shadow: 5px 5px 5px 5px #888;
+  box-shadow: 5px 10px 8px 10px #888;
 }
 
 .header {
@@ -107,18 +107,18 @@ body {
   gap: 15px;
 }
 
-.icon-humberger {
+.humberger-image {
   width: 30px;
   height: 30px;
 }
 
-.icon-trash {
+.trash-image {
   width: 30px;
   height: 30px;
   display: none;
 }
 
-.icon-trash-show {
+.trash-image-show {
   display: inline;
 }
 
@@ -139,8 +139,4 @@ body {
 
 .selected {
   background-color: #fffec4;
-}
-
-.completed {
-  text-decoration: line-through;
 }
