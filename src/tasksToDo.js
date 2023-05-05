@@ -1,5 +1,5 @@
 export default class TasksToDo {
-  Constructor() {
+  constructor() {
     this.arrayTasks = [];
   }
 
