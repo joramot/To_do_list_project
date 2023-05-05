@@ -1,4 +1,4 @@
-class tasksToDo {
+export default class tasksToDo {
   constructor() {
     this.arrayTasks = [];
   }
