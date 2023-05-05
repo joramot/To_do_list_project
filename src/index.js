@@ -1,16 +1,16 @@
 import './style.css';
-import './assets/images/reload.png';
-import './assets/images/enter.png';
-import './assets/images/more.png';
-import './assets/images/trash.png';
+import './img/reload.png';
+import './img/enter.png';
+import './img/more.png';
+import './img/trash.png';
 
-import tasksToDo from './tasksToDo'; 
+import TasksToDo from './tasksToDo.js';
 
 const showListTasks = () => {
-  const task = new tasksToDo ();
+  const task = new TasksToDo();
   const localTasks = JSON.parse(localStorage.getItem('localTasks'));
   const items = document.querySelector('.items');
-  if (localTasks != null){
+  if (localTasks != null) {
     localTasks.forEach((localtask) => {
       const taskObj = {
         desc: localtask.desc,
@@ -26,9 +26,19 @@ const showListTasks = () => {
   }
 
   const addBtn = document.querySelector('.add-input');
-  addBtn.addEventListener('keypress', (event) => { 
+  addBtn.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
       task.addTask(addBtn.value, false, task.arrayTasks.length);
     }
   });
+
+  task.displayTasks();
+  const trashBtn = document.querySelectorAll('.trash-image');
+  task.deleteTask(trashBtn);
+  const descInput = document.querySelectorAll('.desc');
+  task.updateTasksList(descInput);
+  const reloadBtn = document.querySelector('.reload-image');
+  task.reloadTasks(reloadBtn);
 };
+
+showListTasks();
