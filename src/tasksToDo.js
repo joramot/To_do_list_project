@@ -36,6 +36,18 @@ export default class TasksToDo {
     });
   }
 
+  adjustDescription = () => {
+    let lenght = 0;
+    this.arrayTasks.forEach((item) => {
+      // eslint-disable-next-line no-self-assign
+      item.desc = item.desc;
+      item.index = lenght;
+      // eslint-disable-next-line no-self-assign
+      item.completed = item.completed;
+      lenght += 1;
+    });
+  }
+
   deleteTask = (btn) => {
     btn.forEach((btn, index) => {
       btn.addEventListener('click', () => {
@@ -92,23 +104,11 @@ export default class TasksToDo {
     });
   }
 
-  adjustDescriptio = () => {
-    let lenght = 0;
-    this.arrayTasks.forEach((item) => {
-      // eslint-disable-next-line no-self-assign
-      item.desc = item.desc;
-      item.index = lenght;
-      // eslint-disable-next-line no-self-assign
-      item.completed = item.completed;
-      lenght += 1;
-    });
-  }
-
   clearList = (btn, checkIndex) => {
     btn.addEventListener('click', () => {
       const elements = this.arrayTasks.filter((item, index) => checkIndex.indexOf(index) === -1);
       this.arrayTasks = elements;
-      this.adjustDescriptio();
+      this.adjustDescription();
       localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
       window.location.reload();
     });

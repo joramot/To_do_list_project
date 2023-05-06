@@ -53,4 +53,4 @@ task.arrayTasks.forEach((completedTask, idx) => {
   }
 });
 
-task.clearCompleted(btnClear, checkedBox);
+task.clearList(btnClear, checkedBox);
