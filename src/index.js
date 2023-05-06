@@ -8,32 +8,36 @@ import './img/trash.png';
 const task = new TasksToDo();
 const localTasks = JSON.parse(localStorage.getItem('localTasks'));
 const items = document.querySelector('.items');
+
 if (localTasks != null) {
   localTasks.forEach((localtask) => {
-    const taskObj = {
+    const obj = {
       desc: localtask.desc,
       completed: localtask.completed,
       index: localtask.index,
     };
-    task.arrayTasks.push(taskObj);
+    task.arrayTasks.push(obj);
     items.innerHTML += `<form class='item item${localtask.index}'>
       <div class='item-desc'><div class='check'><input type='checkbox' id='check${localtask.index}' class='checkbox'></div><input type='text' id='desc${localtask.index}' class='desc' value='${localtask.desc}'></div>
-      <div class='hamburger'><img class='hamburger-image hamburger-image${localtask.index}' src='src/img/more.png' alt='hamburger'> <img class='trash-image trash-image${localtask.index}' src='src/img/trash.png' alt='trash'></div>
+      <div class='hamburger'><img class='hamburger-image hamburger-image${localtask.index}' src='img/more.png' alt='hamburger'> <img class='trash-image trash-image${localtask.index}' src='img/trash.png' alt='trash'></div>
       </form>`;
   });
 }
 
-const addBtn = document.querySelector('.add-input');
-addBtn.addEventListener('keypress', (event) => {
+const submitButton = document.querySelector('.add-input');
+submitButton.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    task.newTask(addBtn.value, false, task.arrayTasks.length);
+    task.newTask(submitButton.value, false, task.arrayTasks.length);
   }
 });
 
 task.displayTasks();
+
 const trashBtn = document.querySelectorAll('.trash-image');
 task.deleteTask(trashBtn);
+
 const descInput = document.querySelectorAll('.desc');
 task.updateTasksList(descInput);
+
 const reloadBtn = document.querySelector('.reload-image');
 task.reloadTasks(reloadBtn);

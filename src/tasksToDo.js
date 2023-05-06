@@ -20,7 +20,7 @@ export default class TasksToDo {
       item.addEventListener('click', () => {
         const itemContent = document.querySelector(`.item${index}`);
         const trashImage = document.querySelector(`.trash-image${index}`);
-        const moreImage = document.querySelector(`.humberger-image${index}`);
+        const moreImage = document.querySelector(`.hamburger-image${index}`);
         const selected = document.querySelector('.selected');
         const trashImageActive = document.querySelector('.trash-image-show');
         const moreImageHide = document.querySelector('.more-image-hide');
@@ -40,12 +40,14 @@ export default class TasksToDo {
     btn.forEach((btn, index) => {
       btn.addEventListener('click', () => {
         this.arrayTasks = this.arrayTasks.filter((item, i) => i !== index);
-        let lenght = 0;
+        let length = 0;
         this.arrayTasks.forEach((item) => {
-          this.item.desc = item.desc;
-          this.item.index = lenght;
-          this.item.completed = item.completed;
-          lenght += 1;
+          // eslint-disable-next-line no-self-assign
+          item.desc = item.desc;
+          item.index = length;
+          // eslint-disable-next-line no-self-assign
+          item.completed = item.completed;
+          length += 1;
         });
         localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
         window.location.reload();
@@ -59,7 +61,7 @@ export default class TasksToDo {
         if (event.key === 'Enter') {
           this.arrayTasks[index].desc = desc.value;
           localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
-          window.location.reloadTasks();
+          window.location.reload();
         }
       });
     });
@@ -67,7 +69,7 @@ export default class TasksToDo {
 
   reloadTasks = (rTBtn) => {
     rTBtn.addEventListener('click', () => {
-      window.location.reloadTasks();
+      window.location.reload();
     });
   }
 }
