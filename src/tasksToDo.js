@@ -52,15 +52,6 @@ export default class TasksToDo {
     btn.forEach((btn, index) => {
       btn.addEventListener('click', () => {
         this.arrayTasks = this.arrayTasks.filter((item, i) => i !== index);
-        // let length = 0;
-        // this.arrayTasks.forEach((item) => {
-        //   // eslint-disable-next-line no-self-assign
-        //   item.desc = item.desc;
-        //   item.index = length;
-        //   // eslint-disable-next-line no-self-assign
-        //   item.completed = item.completed;
-        //   length += 1;
-        // });
         this.adjustDescription();
         localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
         window.location.reload();
@@ -90,16 +81,18 @@ export default class TasksToDo {
     checkBox.forEach((item, index) => {
       const descInput = document.querySelector(`.desc${index}`);
       item.addEventListener('change', () => {
-        if (item.checked === true) {
-          this.arrayTasks[index].completed = true;
-          localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
-          descInput.classList.add('completed');
-        } else {
-          this.arrayTasks[index].completed = false;
-          localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
-          descInput.classList.remove('completed');
+        if (descInput) {
+          if (item.checked === true) {
+            this.arrayTasks[index].completed = true;
+            localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
+            descInput.classList.add('completed');
+          } else {
+            this.arrayTasks[index].completed = false;
+            localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
+            descInput.classList.remove('completed');
+          }
+          window.location.reload();
         }
-        window.location.reload();
       });
     });
   }
