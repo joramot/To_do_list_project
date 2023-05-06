@@ -41,3 +41,16 @@ task.updateTasksList(descInput);
 
 const reloadBtn = document.querySelector('.reload-image');
 task.reloadTasks(reloadBtn);
+
+const completed = document.querySelectorAll('.checkbox');
+task.completeTask(completed);
+
+const btnClear = document.querySelector('.btn-clear');
+const checkedBox = [];
+task.arrayTasks.forEach((completedTask, idx) => {
+  if (completedTask.completed === true) {
+    checkedBox.push(idx);
+  }
+});
+
+task.clearCompleted(btnClear, checkedBox);
