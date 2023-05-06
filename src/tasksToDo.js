@@ -40,15 +40,16 @@ export default class TasksToDo {
     btn.forEach((btn, index) => {
       btn.addEventListener('click', () => {
         this.arrayTasks = this.arrayTasks.filter((item, i) => i !== index);
-        let length = 0;
-        this.arrayTasks.forEach((item) => {
-          // eslint-disable-next-line no-self-assign
-          item.desc = item.desc;
-          item.index = length;
-          // eslint-disable-next-line no-self-assign
-          item.completed = item.completed;
-          length += 1;
-        });
+        // let length = 0;
+        // this.arrayTasks.forEach((item) => {
+        //   // eslint-disable-next-line no-self-assign
+        //   item.desc = item.desc;
+        //   item.index = length;
+        //   // eslint-disable-next-line no-self-assign
+        //   item.completed = item.completed;
+        //   length += 1;
+        // });
+        this.adjustDescription();
         localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
         window.location.reload();
       });
@@ -100,6 +101,16 @@ export default class TasksToDo {
       // eslint-disable-next-line no-self-assign
       item.completed = item.completed;
       lenght += 1;
+    });
+  }
+
+  clearList = (btn, checkIndex) => {
+    btn.addEventListener('click', () => {
+      const elements = this.arrayTasks.filter((item, index) => checkIndex.indexOf(index) === -1);
+      this.arrayTasks = elements;
+      this.adjustDescriptio();
+      localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
+      window.location.reload();
     });
   }
 }
