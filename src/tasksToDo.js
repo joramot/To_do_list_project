@@ -90,4 +90,16 @@ export default class TasksToDo {
       });
     });
   }
+
+  adjustDescriptio = () => {
+    let lenght = 0;
+    this.arrayTasks.forEach((item) => {
+      // eslint-disable-next-line no-self-assign
+      item.desc = item.desc;
+      item.index = lenght;
+      // eslint-disable-next-line no-self-assign
+      item.completed = item.completed;
+      lenght += 1;
+    });
+  }
 }
