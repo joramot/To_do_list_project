@@ -72,4 +72,22 @@ export default class TasksToDo {
       window.location.reload();
     });
   }
+
+  completeTask = (checkBox) => {
+    checkBox.forEach((item, index) => {
+      const descInput = document.querySelector(`.desc${index}`);
+      item.addEventListener('change', () => {
+        if (item.checked === true) {
+          this.arrayTasks[index].completed = true;
+          localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
+          descInput.classList.add('completed');
+        } else {
+          this.arrayTasks[index].completed = false;
+          localStorage.setItem('localTasks', JSON.stringify(this.arrayTasks));
+          descInput.classList.remove('completed');
+        }
+        window.location.reload();
+      });
+    });
+  }
 }
