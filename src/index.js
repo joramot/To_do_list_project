@@ -17,10 +17,17 @@ if (localTasks != null) {
       index: localtask.index,
     };
     task.arrayTasks.push(obj);
-    items.innerHTML += `<form class='item item${localtask.index}'>
+    if (localtask.completed === true) {
+      items.innerHTML += `<form class='item item${localtask.index}'>
       <div class='item-desc'><div class='check'><input type='checkbox' id='check${localtask.index}' class='checkbox'></div><input type='text' id='desc${localtask.index}' class='desc' value='${localtask.desc}'></div>
       <div class='hamburger'><img class='hamburger-image hamburger-image${localtask.index}' src='img/more.png' alt='hamburger'> <img class='trash-image trash-image${localtask.index}' src='img/trash.png' alt='trash'></div>
       </form>`;
+    } else {
+      items.innerHTML += `<form class='item item${localtask.index}'>
+    <div class='item-desc'><div class='check'><input type='checkbox' id='check${localtask.index}' class='checkbox checkbox${localtask.index}'></div><input type='text' id='desc${localtask.index}' class='desc desc${localtask.index}' value='${localtask.desc}'></div>
+    <div class='hamburger'><img class='hamburger-image hamburger-image${localtask.index}' src='img/more.png' alt='hamburger'> <img class='trash-image trash-image${localtask.index}' src='img/trash.png' alt='trash'></div>
+    </form>`;
+    }
   });
 }
 
